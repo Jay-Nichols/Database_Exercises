@@ -37,3 +37,95 @@ WHERE dept_no IN (
 			SELECT emp_no
 			FROM dept_manager
 )));
+
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees
+	WHERE gender = 'F'
+); 
+
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees
+	WHERE gender = 'M'
+);
+
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE to_date = '9999-01-01' 
+AND emp_no IN (
+	SELECT emp_no 
+	FROM employees
+	WHERE gender = 'F'
+);
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE to_date = '9999-01-01' 
+AND emp_no IN (
+	SELECT emp_no 
+	FROM employees
+	WHERE gender = 'M'
+);
+
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees 
+	WHERE gender = 'F'
+	AND emp_no IN (
+		SELECT emp_no 
+		FROM dept_manager
+));
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees 
+	WHERE gender = 'M'
+	AND emp_no IN (
+		SELECT emp_no 
+		FROM dept_manager
+));
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees 
+	WHERE gender = 'F'
+	AND emp_no IN (
+		SELECT emp_no 
+		FROM dept_manager
+		WHERE to_date = '9999-01-01'
+));
+
+SELECT AVG(salaries.salary)
+FROM salaries
+WHERE emp_no IN (
+	SELECT emp_no
+	FROM employees 
+	WHERE gender = 'M'
+	AND emp_no IN (
+		SELECT emp_no 
+		FROM dept_manager
+		WHERE to_date = '9999-01-01'
+));
+
+
+
+ 
+
+
+
+
